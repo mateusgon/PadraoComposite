@@ -18,7 +18,7 @@ public class GravarContatoAction implements Action{
         String email = request.getParameter("textEmail");       
         if(nome.equals("") || email.equals("")) 
         {
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("GravarContato.jsp");
         } 
         else 
         {

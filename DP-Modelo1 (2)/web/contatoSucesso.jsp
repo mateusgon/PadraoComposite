@@ -1,9 +1,3 @@
-<%-- 
-    Document   : contatoSucesso
-    Created on : 16/08/2018, 21:21:15
-    Author     : ice
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

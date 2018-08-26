@@ -1,9 +1,3 @@
-<%-- 
-    Document   : contatoErro
-    Created on : 16/08/2018, 21:21:25
-    Author     : ice
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
