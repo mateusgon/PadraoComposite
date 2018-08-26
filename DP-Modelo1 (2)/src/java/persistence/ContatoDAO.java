@@ -20,7 +20,7 @@ public class ContatoDAO {
         try{
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("insert into contato(nome, email) values ('"+ contato.getNome() +"', '"+ contato.getEmail() +"')");
+            st.execute("insert into contato(nome, email, fk_codigoEmpresa) values ('"+ contato.getNome() +"', '"+ contato.getEmail() +"', '"+contato.getCodigoEmpresa()+"')");
         } catch(SQLException e){
             throw e;
         } finally{
@@ -35,10 +35,14 @@ public class ContatoDAO {
         try{
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("select nome, email from contato where nome="+contato.getNome());
+            st.execute("select codigocontato, nome, email, fk_codigoEmpresa from contato where nome="+contato.getNome());
             ResultSet resultado = st.getResultSet();
+            Integer codigoContato = resultado.getInt("codigoContato");
             String email = resultado.getString("email");
+            Integer codigoEmpresa = resultado.getInt("fk_codigoEmpresa");
+            contato.setCodigoContato(codigoContato);
             contato.setEmail(email);
+            contato.setCodigoEmpresa(codigoEmpresa);
         } catch(SQLException e){
             throw e;
         } finally{

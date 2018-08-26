@@ -18,15 +18,15 @@ public class ApagarContatoAction implements Action{
         } 
         else 
         {
-            Contato contato = new Contato(nome, null);
+            Contato contato = new Contato(null, nome, null, null);
             try
             {
                 ContatoDAO.getInstance().delete(contato);
-                response.sendRedirect("contatoSucesso.jsp");
+                response.sendRedirect("Sucesso.jsp");
             }
             catch (SQLException ex)
             {
-                response.sendRedirect("contatoErro.jsp");
+                response.sendRedirect("Erro.jsp");
                 ex.printStackTrace();
             }
         }

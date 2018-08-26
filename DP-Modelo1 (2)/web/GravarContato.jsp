@@ -13,6 +13,13 @@
             <input type="text" name="textNome"/><br/>
             Entre com seu email
             <input type="text" name="textEmail"/><br/>
+            Empresa
+            <select>
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </select> <br/>
             <input type="submit"/>
         </form>    
     </body>

@@ -15,22 +15,23 @@ public class GravarContatoAction implements Action{
     @Override
     public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String nome = request.getParameter("textNome");
-        String email = request.getParameter("textEmail");       
+        String email = request.getParameter("textEmail");
+        
         if(nome.equals("") || email.equals("")) 
         {
             response.sendRedirect("GravarContato.jsp");
         } 
         else 
         {
-            Contato contato = new Contato(nome, email);
+            Contato contato = new Contato(null, nome, email, null);
             try
             {
                 ContatoDAO.getInstance().save(contato);
-                response.sendRedirect("contatoSucesso.jsp");
+                response.sendRedirect("Sucesso.jsp");
             }
             catch (SQLException ex)
             {
-                response.sendRedirect("contatoErro.jsp");
+                response.sendRedirect("Erro.jsp");
                 ex.printStackTrace();
             }
         }

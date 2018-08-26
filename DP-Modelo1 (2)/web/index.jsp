@@ -8,6 +8,7 @@
     <body>
         <nav id="menu">
             <ul>
+                <li><a href="GravarEmpresa.jsp">Gravar empresa</a></li>
                 <li><a href="GravarContato.jsp">Gravar contato</a></li>
                 <li><a href="LerContato.jsp">Ler contato</a></li>
                 <li><a href="ApagarContato.jsp">Excluir contato</a></li>
