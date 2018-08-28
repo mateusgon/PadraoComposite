@@ -20,7 +20,7 @@ public class ContatoDAO {
         try{
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("insert into contato(nome, email, fk_codigoEmpresa) values ('"+ contato.getNome() +"', '"+ contato.getEmail() +"', '"+contato.getCodigoEmpresa()+"')");
+            st.execute("insert into contato(nome, email, fk_idEmpresa) values ('"+ contato.getNome() +"', '"+ contato.getEmail() +"', "+contato.getCodigoEmpresa()+")");
         } catch(SQLException e){
             throw e;
         } finally{
@@ -35,14 +35,12 @@ public class ContatoDAO {
         try{
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("select codigocontato, nome, email, fk_codigoEmpresa from contato where nome="+contato.getNome());
-            ResultSet resultado = st.getResultSet();
-            Integer codigoContato = resultado.getInt("codigoContato");
-            String email = resultado.getString("email");
-            Integer codigoEmpresa = resultado.getInt("fk_codigoEmpresa");
-            contato.setCodigoContato(codigoContato);
-            contato.setEmail(email);
-            contato.setCodigoEmpresa(codigoEmpresa);
+            ResultSet resultado = st.executeQuery("select email from contato where nome='"+contato.getNome()+"'");
+            while (resultado.next())
+            {
+                String email = resultado.getString("email");
+                contato.setEmail(email);
+            }
         } catch(SQLException e){
             throw e;
         } finally{
@@ -58,7 +56,7 @@ public class ContatoDAO {
         try{
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("update email from contato where nome="+contato.getNome());
+            st.execute("update contato set email='"+contato.getEmail()+"' where nome='"+contato.getNome()+"'");
         } catch(SQLException e){
             throw e;
         } finally{
@@ -73,7 +71,7 @@ public class ContatoDAO {
         try{
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("delete from contato where nome="+contato.getNome());
+            st.execute("delete from contato where nome='"+contato.getNome()+"'");
         } catch(SQLException e){
             throw e;
         } finally{

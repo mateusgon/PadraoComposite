@@ -1,5 +1,6 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 
 <html>
     <head>
@@ -15,10 +16,10 @@
             <input type="text" name="textEmail"/><br/>
             Empresa
             <select>
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
-                <option value="audi">Audi</option>
+                <option value="1" name="valor">Volvo</option>
+                <option value="2" name="valor">Saab</option>
+                <option value="3" name="valor">Mercedes</option>
+                <option value="4" name="valor">Audi</option>
             </select> <br/>
             <input type="submit"/>
         </form>    

@@ -16,14 +16,14 @@ public class GravarContatoAction implements Action{
     public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String nome = request.getParameter("textNome");
         String email = request.getParameter("textEmail");
-        
+        Integer idEmpresa = Integer.parseInt(request.getParameter("valor"));
         if(nome.equals("") || email.equals("")) 
         {
             response.sendRedirect("GravarContato.jsp");
         } 
         else 
         {
-            Contato contato = new Contato(null, nome, email, null);
+            Contato contato = new Contato(null, nome, email, idEmpresa);
             try
             {
                 ContatoDAO.getInstance().save(contato);
